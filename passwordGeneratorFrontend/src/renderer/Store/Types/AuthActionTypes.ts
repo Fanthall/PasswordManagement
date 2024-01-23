@@ -1,0 +1,4 @@
+export enum AuthActionTypes {
+	UPDATE_AUTH_USER = "UPDATE_AUTH_USER",
+	REMOVE_AUTH_USER = "REMOVE_AUTH_USER",
+}
