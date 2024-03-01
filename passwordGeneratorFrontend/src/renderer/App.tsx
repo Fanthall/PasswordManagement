@@ -2,25 +2,26 @@
 import { NextUIProvider } from "@nextui-org/react";
 import React, { FunctionComponent } from "react";
 import { Provider } from "react-redux";
-import "./App.css";
-import Loading from "./Loading";
+import Landing from "./Landing";
 import { store } from "./Store/store";
+import "./dist/output.css";
 
 const App: FunctionComponent = (props) => {
 	return (
 		<Provider store={store}>
 			<NextUIProvider
+				className="w-full h-full"
 				style={{
 					backgroundColor: "transparent",
 				}}
 			>
 				<main
-					className="dark text-foreground bg-background"
+					className="dark text-foreground bg-background w-full h-full"
 					style={{
 						backgroundColor: "transparent",
 					}}
 				>
-					<Loading />
+					<Landing />
 				</main>
 			</NextUIProvider>
 		</Provider>
