@@ -32,16 +32,15 @@ export const updateAuthUser = (newAuthUser: AuthUser) => {
 	};
 };
 
-const removeAuthUserAction = (newAuthUser: AuthUser): AuthAction => {
+const removeAuthUserAction = (): AuthAction => {
 	return {
-		type: AuthActionTypes.UPDATE_AUTH_USER,
-		newAuthUser: newAuthUser,
+		type: AuthActionTypes.REMOVE_AUTH_USER,
 	};
 };
 
-export const removeAuthUser = (newAuthUser: AuthUser) => {
+export const removeAuthUser = () => {
 	return (dispatch: FanthalDispatch) => {
-		dispatch(removeAuthUserAction(newAuthUser));
+		dispatch(removeAuthUserAction());
 	};
 };
 

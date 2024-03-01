@@ -35,6 +35,7 @@ export function makeRequest<T>(
 						data: { refreshToken: localAuth.refreshToken },
 					})
 						.then((res) => {
+							console.log("makeAuthRequest");
 							localStorage.setItem(
 								LocalStorageKeys.AUTH,
 								JSON.stringify({ ...localAuth, ...res.data })
@@ -44,7 +45,11 @@ export function makeRequest<T>(
 						})
 						.catch((err) => {
 							console.log("err");
-							if (err.code === "SDD_101") {
+							if (
+								["SDD_101", "SDD_102", "SDD_001"].some(
+									(code) => code === err.code
+								)
+							) {
 								localStorage.removeItem(LocalStorageKeys.AUTH);
 								return;
 							}
